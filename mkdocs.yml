@@ -1,0 +1,7 @@
+site_name: Elemental Publishing - L2
+docs_dir: markdown
+theme:
+  name: material
+plugins:
+  - offline
+
