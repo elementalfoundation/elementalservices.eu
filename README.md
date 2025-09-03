@@ -10,7 +10,6 @@ docker run --rm -it \
   -u $(id -u):$(id -g) \
   -v "$PWD":/docs \
   squidfunk/mkdocs-material build
-
 ```
 
 You shouldn't need this, but the initial config was built using:
