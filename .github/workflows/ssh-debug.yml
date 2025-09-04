@@ -1,0 +1,43 @@
+name: SSH Debug Session
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup SSH session
+        uses: mxschmitt/action-tmate@v3
+        with:
+          limit-access-to-actor: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install Docker
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y docker.io
+          sudo systemctl start docker
+          sudo usermod -aG docker $USER
+
+      - name: Show environment info
+        run: |
+          echo "Current directory: $(pwd)"
+          echo "Repository contents:"
+          ls -la
+          echo "Docker version:"
+          docker --version
+          echo "MkDocs configuration:"
+          cat mkdocs.yml
+
+      - name: Keep SSH session alive
+        run: |
+          echo "SSH session is active. Connect using the URL above."
+          echo "You can now interactively debug your MkDocs build."
+          echo "Press Ctrl+C to end the session when done."
+          sleep 3600  # Wait for 1 hour or until manually stopped 
