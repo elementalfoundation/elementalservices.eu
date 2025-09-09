@@ -2,6 +2,27 @@ site_name: Elemental Publishing - L2
 docs_dir: markdown
 theme:
   name: material
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - search.highlight
+    - content.code.copy
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
 plugins:
   - offline
-
+nav:
+  - Home: index.md
+  - Getting Started: getting-started.md
+  - About: about.md
