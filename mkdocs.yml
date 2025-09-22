@@ -1,28 +1,40 @@
 site_name: elementalservices.eu
+
+# We write in markdown, and store it in, well:
 docs_dir: markdown
+
+# Material docs: https://github.com/squidfunk/mkdocs-material
 theme:
   name: material
-  features:
-    - navigation.instant
-    - navigation.tabs
-    - search.highlight
-    - content.code.copy
+
+  # Colors
+  # https://mrkeo.github.io/setup/changing-the-colors/
   palette:
+    # Light mode
     - scheme: default
-      primary: indigo
-      accent: indigo
+      primary: blue grey
+      accent: deep orange
       toggle:
         icon: material/weather-night
         name: Switch to dark mode
+
+    # Dark mode
     - scheme: slate
-      primary: indigo
-      accent: indigo
+      primary: blue grey
+      accent: deep orange
       toggle:
         icon: material/weather-sunny
         name: Switch to light mode
+
+features:
+  - navigation.instant
+  - navigation.tabs
+  - search.highlight
+  - content.code.copy
+
 plugins:
   - offline
+
 nav:
   - Home: index.md
-  - Getting Started: getting-started.md
-  - About: about.md
+  - How I work: howiwork.md
