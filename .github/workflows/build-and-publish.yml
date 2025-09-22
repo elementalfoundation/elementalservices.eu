@@ -43,8 +43,8 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: v${{ github.run_number }}
-          name: "elementalservices.eu website v${{ github.run_number }}"
-          files: elementalserviceseu.tar.gz
+          name: "v${{ github.run_number }}"
+          files: elementalserviceseu.v${{ github.run_number }}.tar.gz
           draft: false
           prerelease: false
         env:
