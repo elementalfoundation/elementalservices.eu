@@ -25,7 +25,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.x'
+          python-version: "3.x"
 
       - name: Install MkDocs Material
         run: |
@@ -42,9 +42,9 @@ jobs:
       - name: Publish site release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: site-${{ github.run_number }}
-          name: "MkDocs site ${{ github.run_number }}"
-          files: site.tar.gz
+          tag_name: v${{ github.run_number }}
+          name: "elementalservices.eu website v${{ github.run_number }}"
+          files: elementalserviceseu.tar.gz
           draft: false
           prerelease: false
         env:

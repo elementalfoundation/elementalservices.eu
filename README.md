@@ -2,6 +2,10 @@
 
 - [Mkdocs - writing your docs](https://www.mkdocs.org/user-guide/writing-your-docs/)
 
+## Preview on Github pages
+
+[https://elementalfoundation.github.io/elementalservices.eu/](https://elementalfoundation.github.io/elementalservices.eu/)
+
 ## Preview locally
 
 Pull in the mkdocs docker container:
@@ -28,4 +32,3 @@ docker run --rm -it \
   -v "$PWD":/docs \
   squidfunk/mkdocs-material build
 ```
-
