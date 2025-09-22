@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -34,6 +34,21 @@ jobs:
       - name: Build MkDocs site
         run: |
           mkdocs build -f mkdocs.yml -d site
+
+      - name: Archive built site
+        run: |
+          tar -czf site.tar.gz -C site .
+
+      - name: Publish site release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: site-${{ github.run_number }}
+          name: "MkDocs site ${{ github.run_number }}"
+          files: site.tar.gz
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
